@@ -23,7 +23,7 @@ public class SelectControl : MonoBehaviour
 
         if (LastObject != selection)
         {
-            // Over Something New. 
+            // Over Something New. or Nothing atll 
 
             if (LastObject)
             {

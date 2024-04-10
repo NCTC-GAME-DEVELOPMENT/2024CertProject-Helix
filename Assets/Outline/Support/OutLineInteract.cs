@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events; 
 
 public class OutLineInteract : MonoBehaviour
 {
     Outline outline;
-
+    public UnityEvent HoverEvent;
+    public UnityEvent LeaveEvent;
+    public UnityEvent SelectEvent;
 
     void Start()
     {
@@ -18,6 +21,7 @@ public class OutLineInteract : MonoBehaviour
         {
             outline.enabled = true;
         }
+        HoverEvent?.Invoke(); 
     }
         
 
@@ -27,15 +31,21 @@ public class OutLineInteract : MonoBehaviour
         {
             outline.enabled = false;
         }
-        
+        LeaveEvent?.Invoke();
     }
 
     public virtual void OnSelect()
+    {
+     
+        SelectEvent?.Invoke(); 
+
+    }
+
+    public virtual void SetGreen()
     {
         if (outline)
         {
             outline.OutlineColor = Color.green;
         }
-
     }
 }
