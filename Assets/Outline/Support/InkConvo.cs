@@ -8,6 +8,7 @@ public class InkConvo : MonoBehaviour
 
     public void RunInk()
     {
-        Debug.Log("Ink File Start :: " + InkConvoFile); 
+        // Debug.Log("Ink File Start :: " + InkConvoFile); 
+        InkManager.self.StartInkConvo(InkConvoFile); 
     }
 }
