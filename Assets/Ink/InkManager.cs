@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ink.Runtime;
 
 public class InkManager : MonoBehaviour
 {
+
     public static InkManager self;
 
     private void Awake()
@@ -11,9 +13,10 @@ public class InkManager : MonoBehaviour
         self = this; 
     }
 
-    public void StartInkConvo(string InkFileName)
+    public void StartInkConvo(TextAsset InkFileName)
     {
-        Debug.Log("Manager Is starting inkfile:: " + InkFileName); 
+        Debug.Log("Manager Is starting inkfile");
+        
     }
 
     void Start()
@@ -21,7 +24,6 @@ public class InkManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
