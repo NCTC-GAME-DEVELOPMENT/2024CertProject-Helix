@@ -11,7 +11,7 @@ public class InkConvo : MonoBehaviour
     public TextAsset InkStory;
     public TextMeshProUGUI textBox;
     public Story story;
-    private TextMeshPro textPrefab;
+    public Canvas canvas;
 
     public void Awake()
     {
@@ -32,7 +32,8 @@ public class InkConvo : MonoBehaviour
 
     void ContentView(string text)
     {
-        TextMeshPro storyText = Instantiate(textPrefab);
+        TextMeshProUGUI storyText = Instantiate(textBox);
         storyText.text = text;
+        storyText.transform.SetParent(canvas.transform, false);
     }
 }
