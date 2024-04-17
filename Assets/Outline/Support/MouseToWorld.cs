@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class MouseToWorld : MonoBehaviour
 {
-
+    public static MouseToWorld self;
     public Vector3 worldPosition;
     public GameObject worldObject;
     public Camera cam;
     public Transform sphere;
     public Vector3 MousePos;
+
+    public void Awake()
+    {
+        self = this; 
+    }
 
     public void Update()
     {
