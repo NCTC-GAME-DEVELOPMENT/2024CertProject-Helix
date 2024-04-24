@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 18074891}
   - component: {fileID: 18074890}
   - component: {fileID: 18074889}
-  - component: {fileID: 18074888}
+  - component: {fileID: 18074892}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -142,22 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &18074888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18074887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d3cd3515ac3c340bf5386d7230fba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 0}
-  isDialoguePlaying: 0
-  textBox: {fileID: 0}
-  InkStory: {fileID: 0}
 --- !u!114 &18074889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +188,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18074892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18074887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5292c203eb4bda4386a5cab2902b6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  isDialoguePlaying: 0
+  canContinueStory: 0
+  textBox: {fileID: 0}
+  InkStory: {fileID: 0}
+  choices: []
+  choicesText: []
 --- !u!1 &609674044
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,13 +647,13 @@ MonoBehaviour:
   SelectEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388392501}
-        m_TargetAssemblyTypeName: InkConvo, Assembly-CSharp
-        m_MethodName: RunInk
-        m_Mode: 1
+      - m_Target: {fileID: 18074892}
+        m_TargetAssemblyTypeName: InkManager, Assembly-CSharp
+        m_MethodName: StartInkConvo
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.TextAsset, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -811,6 +814,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InkStory: {fileID: 0}
+  PostConvoCall:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1388392502
 MonoBehaviour:
   m_ObjectHideFlags: 0
