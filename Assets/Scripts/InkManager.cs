@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
 using TMPro;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class InkManager : MonoBehaviour
 {
+    public float typingSpeed = 0.05f;
     public GameObject dialoguePanel;
     public bool isDialoguePlaying;
     public bool canContinueStory;
@@ -19,6 +19,9 @@ public class InkManager : MonoBehaviour
     public GameObject[] choices;
     public TextMeshProUGUI[] choicesText;
 
+    private bool canContinueLine = false;
+
+    private Coroutine displayLineCoroutine;
 
     private void Awake()
     {
@@ -77,8 +80,12 @@ public class InkManager : MonoBehaviour
     {
         if (story.canContinue)
         {
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
             canContinueStory = true;
-            textBox.text = story.Continue();
+            StartCoroutine(DisplayLine(story.Continue()));
             DisplayChoices();
         }
         else
@@ -124,6 +131,18 @@ public class InkManager : MonoBehaviour
         {
             story.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
+
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        textBox.text = "";
+
+        foreach (char letter in line.ToCharArray())
+        {
+            textBox.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
     }
 }
