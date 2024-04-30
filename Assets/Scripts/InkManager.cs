@@ -54,7 +54,7 @@ public class InkManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (canContinueLine && Input.GetKeyDown(KeyCode.Mouse0))
         {
             ContinueStory();
         }
@@ -144,5 +144,6 @@ public class InkManager : MonoBehaviour
             textBox.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        canContinueLine = true;
     }
 }
