@@ -19,13 +19,13 @@ public class InkManager : MonoBehaviour
     public GameObject[] choices;
     public TextMeshProUGUI[] choicesText;
 
-    private bool canContinueLine = false;
+    Mouse mouse = Mouse.current;
 
     private Coroutine displayLineCoroutine;
 
     private void Awake()
     {
-     
+        
         if (self != null)
         {
             Debug.LogError("There's more than one InkManager in the scene. " +gameObject.name);
@@ -54,7 +54,7 @@ public class InkManager : MonoBehaviour
             return;
         }
 
-        if (canContinueLine && Input.GetKeyDown(KeyCode.Mouse0))
+        if (mouse.leftButton.wasPressedThisFrame)
         {
             ContinueStory();
         }
@@ -114,7 +114,6 @@ public class InkManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
-
         StartCoroutine(SelectFirstChoice());
     }
 
@@ -138,12 +137,10 @@ public class InkManager : MonoBehaviour
     private IEnumerator DisplayLine(string line)
     {
         textBox.text = "";
-
         foreach (char letter in line.ToCharArray())
         {
             textBox.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        canContinueLine = true;
     }
 }
