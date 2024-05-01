@@ -9,8 +9,9 @@ Rough night?
     * * [Like I said, "too old."]
         -> whowould
 = whowould
-* [What kind of person would do this?]
+* [Who would do this?]
     Someone wanting revenge I presume,
     I didn't touch anything like you asked.
-    * * [Thank you, let's get to work.]
-        -> END
+    * * [Thank you, Sean.]
+        * * * [Let's get to work.]
+            -> END

@@ -12,6 +12,7 @@ public class InkManager : MonoBehaviour
     public GameObject dialoguePanel;
     public bool isDialoguePlaying;
     public bool canContinueStory;
+    public bool canContinueToNextLine = false;
     public static InkManager self;
     public Story story;
     public TextMeshProUGUI textBox;
@@ -20,12 +21,13 @@ public class InkManager : MonoBehaviour
     public TextMeshProUGUI[] choicesText;
 
     Mouse mouse = Mouse.current;
+    Keyboard kb = Keyboard.current;
 
     private Coroutine displayLineCoroutine;
 
     private void Awake()
     {
-        
+        canContinueToNextLine = true;
         if (self != null)
         {
             Debug.LogError("There's more than one InkManager in the scene. " +gameObject.name);
@@ -54,10 +56,12 @@ public class InkManager : MonoBehaviour
             return;
         }
 
-        if (mouse.leftButton.wasPressedThisFrame)
+        if (story.currentChoices.Count == 0 && canContinueToNextLine && mouse.leftButton.wasPressedThisFrame)
         {
             ContinueStory();
         }
+
+
     }
 
    public void ExitInkConvo()
@@ -73,7 +77,7 @@ public class InkManager : MonoBehaviour
         story = new Story(InkFileName.text);
         isDialoguePlaying = true;
         dialoguePanel.SetActive(true);
-        DisplayChoices();
+
     }
 
     private void ContinueStory()
@@ -86,7 +90,7 @@ public class InkManager : MonoBehaviour
             }
             canContinueStory = true;
             StartCoroutine(DisplayLine(story.Continue()));
-            DisplayChoices();
+
         }
         else
         {
@@ -117,6 +121,14 @@ public class InkManager : MonoBehaviour
         StartCoroutine(SelectFirstChoice());
     }
 
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.gameObject.SetActive(false);
+        }
+    }
+
     private IEnumerator SelectFirstChoice()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -126,21 +138,41 @@ public class InkManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        if (canContinueStory == true)
+        if (canContinueToNextLine)
         {
             story.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
-
         }
     }
 
     private IEnumerator DisplayLine(string line)
     {
+        
+        bool isAddingRichTextTag = false;
+        HideChoices();
+        canContinueToNextLine = false;
         textBox.text = "";
         foreach (char letter in line.ToCharArray())
         {
-            textBox.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            if (letter == '<' || isAddingRichTextTag)
+            {
+                isAddingRichTextTag = true;
+                textBox.text += letter;
+                if (letter == '>')
+                {
+                    isAddingRichTextTag = false;
+                }
+            }
+            else
+            {
+                textBox.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
+
+            
         }
+        
+        canContinueToNextLine = true;
+        DisplayChoices();
     }
 }
