@@ -1836,7 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3637f1153a93e14882cd85ec8ce0f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InkStory: {fileID: 4900000, guid: bfe9e5242d25d0f41b498d22204a24c5, type: 3}
+  InkStory: {fileID: 4900000, guid: 7a6775aa8ac14fa418ffbf33dd5f3d41, type: 3}
   PostConvoCall:
     m_PersistentCalls:
       m_Calls: []
