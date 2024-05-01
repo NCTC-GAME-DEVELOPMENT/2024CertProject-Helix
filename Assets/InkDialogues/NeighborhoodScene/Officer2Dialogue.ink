@@ -8,13 +8,13 @@ What's up? -> johnquestion
     -> responses.situation
 * [Where's my partner?]
     -> responses.partner
-+ [Goodbye]
++ [Goodbye.]
     Later.
     -> END
 
 === responses
 = how
-I’m doing fine, but, maybe focus on the case.
+I’m doing fine, you should focus on the case.
 -> officer2start.johnquestion
 = situation
 Didn’t Joe just tell you that? The murderer got what he deserved. That’s it.

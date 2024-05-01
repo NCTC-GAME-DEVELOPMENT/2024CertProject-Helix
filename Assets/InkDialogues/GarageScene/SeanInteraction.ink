@@ -5,7 +5,7 @@ VAR sean_is_ok = false
 What's up?
 * {!sean_is_ok}[How are you?]
     -> how
-* {sean_is_ok}[You sure you're ok?]
+* {sean_is_ok}[Completely sure?]
     -> thing.ok
 * [What happened?]
     -> thing.happen

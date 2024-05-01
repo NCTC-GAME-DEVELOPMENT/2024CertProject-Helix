@@ -19,8 +19,8 @@ I woke up to a scream and I went downstairs to look out the window and I didn’
     * * [Good to know.]
         -> neighborstart
 = happen
-I don’t know, I didn’t see much but the body. I was too scared to investigate.”
-* [Smart move, we don't want more dead people tonight.]
+I don’t know, I didn’t see much but the body. I was too scared to investigate.
+* [Smart move.]
     -> neighborstart
 = see
 I saw a dark shadow move into the dark but nothing of detail.
