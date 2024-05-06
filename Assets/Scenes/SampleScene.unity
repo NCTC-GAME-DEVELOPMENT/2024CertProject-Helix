@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2221,7 +2221,7 @@ GameObject:
   - component: {fileID: 931546377}
   - component: {fileID: 931546376}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ChoiceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2837,8 +2837,16 @@ MonoBehaviour:
   canContinueToNextLine: 0
   textBox: {fileID: 1364088158}
   InkStory: {fileID: 4900000, guid: c839bc1e20b92ab4bbedfc1724528197, type: 3}
-  choices: []
-  choicesText: []
+  choices:
+  - {fileID: 319856325}
+  - {fileID: 1802497120}
+  - {fileID: 1570062867}
+  - {fileID: 354724481}
+  choicesText:
+  - {fileID: 931546376}
+  - {fileID: 1529816360}
+  - {fileID: 1615297306}
+  - {fileID: 1367009497}
 --- !u!1001 &1075079523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3357,7 +3365,7 @@ GameObject:
   - component: {fileID: 1364088159}
   - component: {fileID: 1364088158}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: DialogueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3491,7 +3499,7 @@ GameObject:
   - component: {fileID: 1367009498}
   - component: {fileID: 1367009497}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ChoiceText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3897,7 +3905,7 @@ GameObject:
   - component: {fileID: 1529816361}
   - component: {fileID: 1529816360}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ChoiceText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4221,7 +4229,7 @@ GameObject:
   - component: {fileID: 1615297307}
   - component: {fileID: 1615297306}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ChoiceText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
