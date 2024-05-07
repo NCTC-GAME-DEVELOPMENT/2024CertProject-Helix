@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("Game");
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadSceneAsync("Credits");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
