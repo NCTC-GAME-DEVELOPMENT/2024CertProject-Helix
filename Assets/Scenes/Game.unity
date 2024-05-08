@@ -6553,6 +6553,7 @@ GameObject:
   - component: {fileID: 1445233462}
   - component: {fileID: 1445233461}
   - component: {fileID: 1445233460}
+  - component: {fileID: 1445233465}
   m_Layer: 0
   m_Name: Murderer
   m_TagString: Untagged
@@ -6569,7 +6570,7 @@ Transform:
   m_GameObject: {fileID: 1445233458}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -146.22, y: 9.5, z: 3.6}
+  m_LocalPosition: {x: -146.22, y: 9.5, z: 3.5999975}
   m_LocalScale: {x: 2, y: 15, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6721,6 +6722,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445233458}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1445233465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445233458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185583e34f54f74459c95bc78018dff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d755ebcb6ab996d4c93a868b11214b9b, type: 3}
 --- !u!4 &1445654955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88c2cdeb1958d704faa4bfae2939c4b1, type: 3}
@@ -10731,7 +10745,7 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: c487c8ca8b7524a479e4497bf302f47e, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -10739,7 +10753,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d755ebcb6ab996d4c93a868b11214b9b, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &2058049026
 Transform:
